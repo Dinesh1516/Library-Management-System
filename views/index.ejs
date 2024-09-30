@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Library Management System</h1>
+  <div class="container">
+    <form action="/add">
+        <button class = "add" type="submit">Add New Book</button>
+    </form>
+    <ul>
+      <% books.forEach(book => { %>
+        <li>
+          <span><%= book.title %> by <%= book.author %> - <%= book.genre %></span>
+          <span>
+            <a href="/edit/<%= book.id %>">Edit</a>
+            <form action="/delete/<%= book.id %>" method="POST" class="inline">
+              <button type="submit">Delete</button>
+            </form>
+          </span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
